@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[开始使用Next[转发]]]></title>
     <url>%2F2018%2F11%2F08%2Fmine%2F</url>
-    <content type="text"><![CDATA[Hexo 是高效的静态站点生成框架，她基于 Node.js。 通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 标签插件 来快速的插入特定形式的内容。在这篇文章中，假定你已经成功安装了 Hexo，并使用 Hexo 提供的命令创建了一个站点。 http://theme-next.iissnan.com/getting-started.htmlhttps://www.cnblogs.com/debugzer0/articles/5461804.html]]></content>
+    <content type="text"><![CDATA[Hexo 是高效的静态站点生成框架，她基于 Node.js。 通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 标签插件 来快速的插入特定形式的内容。在这篇文章中，假定你已经成功安装了 Hexo，并使用 Hexo 提供的命令创建了一个站点。 http://theme-next.iissnan.com/getting-started.htmlhttps://www.cnblogs.com/debugzer0/articles/5461804.html四种风格https://blog.csdn.net/acm_th/article/details/79974513]]></content>
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>
