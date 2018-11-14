@@ -11,6 +11,17 @@
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
   <entry>
+    <title><![CDATA[开始使用Next[转发]]]></title>
+    <url>%2F2018%2F01%2F08%2F2nd%2F</url>
+    <content type="text"><![CDATA[异步任务的调度工具&amp;任务队列; 主要处理耗时任务主要三个模块broker, worker, storage 1. 消息中间件(Broker): 就是任务队列 2. 任务执行单元(worker): 执行任务的程序, 可以并发 3. 任务执行结果存储(task result store): 通过中间件存储 http://docs.celeryproject.org/en/latest/getting-started/introduction.htmlhttps://blog.csdn.net/baozhiqiangjava/article/details/80556550]]></content>
+      <categories>
+        <category>佛系分类</category>
+      </categories>
+      <tags>
+        <tag>佛系随记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[1st blog]]></title>
     <url>%2F2017%2F11%2F08%2F1st-blog%2F</url>
     <content type="text"><![CDATA[Hymn for the weekend]]></content>

@@ -61,6 +61,35 @@
   </entry>
   
   <entry>
+    <title>开始使用Next[转发]</title>
+    <link href="http://yoursite.com/2018/01/08/2nd/"/>
+    <id>http://yoursite.com/2018/01/08/2nd/</id>
+    <published>2018-01-07T19:53:15.000Z</published>
+    <updated>2018-11-14T07:06:07.388Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;异步任务的调度工具&amp;amp;任务队列; 主要处理耗时任务&lt;br&gt;主要三个模块broker, worker, storage&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;消息中间件(Broker): 就是任务队列&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;2.
+        
+      
+    
+    </summary>
+    
+      <category term="佛系分类" scheme="http://yoursite.com/categories/%E4%BD%9B%E7%B3%BB%E5%88%86%E7%B1%BB/"/>
+    
+    
+      <category term="佛系随记" scheme="http://yoursite.com/tags/%E4%BD%9B%E7%B3%BB%E9%9A%8F%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>1st blog</title>
     <link href="http://yoursite.com/2017/11/08/1st-blog/"/>
     <id>http://yoursite.com/2017/11/08/1st-blog/</id>
