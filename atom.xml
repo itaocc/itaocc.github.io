@@ -61,11 +61,11 @@
   </entry>
   
   <entry>
-    <title>开始使用Next[转发]</title>
+    <title>一些应用</title>
     <link href="http://yoursite.com/2018/01/08/2nd/"/>
     <id>http://yoursite.com/2018/01/08/2nd/</id>
     <published>2018-01-07T19:53:15.000Z</published>
-    <updated>2018-11-14T07:06:07.388Z</updated>
+    <updated>2018-11-14T07:11:43.743Z</updated>
     
     <summary type="html">
     
@@ -73,10 +73,7 @@
       
         
         
-          &lt;p&gt;异步任务的调度工具&amp;amp;任务队列; 主要处理耗时任务&lt;br&gt;主要三个模块broker, worker, storage&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1. 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;消息中间件(Broker): 就是任务队列&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;2.
+          &lt;p&gt;添加标签分类, 还有第三方文件typora的使用&lt;br&gt;&lt;a href=&quot;https://typora.io/#windows&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://typora.io/#windows&lt;/a&gt;&lt;br&gt;&lt;a
         
       
     
