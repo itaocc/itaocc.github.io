@@ -61,6 +61,25 @@
   </entry>
   
   <entry>
+    <title>迭代器和生成器</title>
+    <link href="http://yoursite.com/2018/01/10/2-%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/"/>
+    <id>http://yoursite.com/2018/01/10/2-迭代器和生成器/</id>
+    <published>2018-01-10T04:50:15.000Z</published>
+    <updated>2018-11-28T08:11:55.428Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;迭代器和生成器&quot;&gt;&lt;a href=&quot;#迭代器和生成器&quot; class=&quot;headerlink&quot; title=&quot;迭代器和生成器&quot;&gt;&lt;/a&gt;迭代器和生成器&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;迭代&lt;/strong&gt;: 访问集合元素的一种方式. 通常把使用for循环取数的过程称为遍历, 也叫迭代.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;可迭代对象&lt;/strong&gt;（Iterable）: 把可以通过for…in…这类语句迭代读取⼀条数据供我们使⽤的对象称之为可迭代对象.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="基础知识" scheme="http://yoursite.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Django</title>
     <link href="http://yoursite.com/2018/01/08/Django%E7%99%BB%E5%BD%95%E6%8E%A5%E5%8F%A3/"/>
     <id>http://yoursite.com/2018/01/08/Django登录接口/</id>
