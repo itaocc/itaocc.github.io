@@ -35,7 +35,7 @@
   <entry>
     <title><![CDATA[Flask代码框架]]></title>
     <url>%2F2018%2F01%2F08%2FFlask%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6%2F</url>
-    <content type="text"><![CDATA[Flask代码框架文件目录说明： Common：系统级配置 common/appconf.py 系统配置文件，用于不同环境可能修改的系统配置 common/applogger.py 日志模块代码 Conf：启动配置，和uwsgi有关联 Lib：公共库 Handler：业务代码 Handler/model：数据库表模块的定义 Common：公共函数、业务公共配置 Core_util：目前主要是异常处理，可以把common的和core_util合成一个 Common/mysql_session.py 数据库session（我们使用的是sqlachedemy） Common/op_Logs_interface.py 记录操作日志 Main.py 系统入口文件 123Handler/handlerfactory.py 所有接口的映射关系Handler/basehandler.py 接口基类，所有接口继承这个]]></content>
+    <content type="text"><![CDATA[Flask代码框架文件及其目录 文件目录说明： Common：系统级配置 common/appconf.py 系统配置文件，用于不同环境可能修改的系统配置 common/applogger.py 日志模块代码 Conf：启动配置，和uwsgi有关联 Lib：公共库 Handler：业务代码 Handler/model：数据库表模块的定义 Common：公共函数、业务公共配置 Core_util：目前主要是异常处理，可以把common的和core_util合成一个 Common/mysql_session.py 数据库session（我们使用的是sqlachedemy） Common/op_Logs_interface.py 记录操作日志 Main.py 系统入口文件 123Handler/handlerfactory.py 所有接口的映射关系Handler/basehandler.py 接口基类，所有接口继承这个]]></content>
       <categories>
         <category>Flask</category>
       </categories>
