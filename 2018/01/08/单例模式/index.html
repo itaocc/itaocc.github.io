@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="单例模式Python中类是通过new来创建实例, 这个类从始至终只有一个实例, 用到__new__方法 代码1 123456789class A(object):    _instance = None    def __new__(cls, *args, **kwargs):        if cls._instance is None:            cls._instance =">
+<meta name="description" content="单例模式Python中类是通过new来创建实例, 这个类从始至终只有一个实例, 用到__new__方法">
 <meta name="keywords" content="单例模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单例模式">
 <meta property="og:url" content="http://yoursite.com/2018/01/08/单例模式/index.html">
 <meta property="og:site_name" content="iTaocc">
-<meta property="og:description" content="单例模式Python中类是通过new来创建实例, 这个类从始至终只有一个实例, 用到__new__方法 代码1 123456789class A(object):    _instance = None    def __new__(cls, *args, **kwargs):        if cls._instance is None:            cls._instance =">
+<meta property="og:description" content="单例模式Python中类是通过new来创建实例, 这个类从始至终只有一个实例, 用到__new__方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-28T07:38:16.270Z">
+<meta property="og:updated_time" content="2018-11-28T07:58:31.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单例模式">
-<meta name="twitter:description" content="单例模式Python中类是通过new来创建实例, 这个类从始至终只有一个实例, 用到__new__方法 代码1 123456789class A(object):    _instance = None    def __new__(cls, *args, **kwargs):        if cls._instance is None:            cls._instance =">
+<meta name="twitter:description" content="单例模式Python中类是通过new来创建实例, 这个类从始至终只有一个实例, 用到__new__方法">
 
 
 
@@ -219,16 +219,6 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
-            
-            日程表
           </a>
         </li>
       
@@ -387,6 +377,7 @@
 
       
         <h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>Python中类是通过<strong>new</strong>来创建实例, 这个类从始至终只有一个实例, 用到<code>__new__</code>方法</p>
+<a id="more"></a>
 <p>代码1</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object)</span>:</span></span><br><span class="line">    _instance = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> cls._instance <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            cls._instance = object.__new__(cls)</span><br><span class="line">            <span class="keyword">return</span> cls._instance</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> cls._instance</span><br></pre></td></tr></table></figure>
 <p>代码2:</p>

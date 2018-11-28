@@ -65,7 +65,7 @@
     <link href="http://yoursite.com/2018/01/08/Django%E7%99%BB%E5%BD%95%E6%8E%A5%E5%8F%A3/"/>
     <id>http://yoursite.com/2018/01/08/Django登录接口/</id>
     <published>2018-01-08T08:45:15.000Z</published>
-    <updated>2018-11-28T07:52:14.346Z</updated>
+    <updated>2018-11-28T07:57:55.536Z</updated>
     
     <summary type="html">
     
@@ -85,18 +85,11 @@
     <link href="http://yoursite.com/2018/01/08/%E6%B3%A8%E5%86%8C%E6%8E%A5%E5%8F%A3/"/>
     <id>http://yoursite.com/2018/01/08/注册接口/</id>
     <published>2018-01-08T08:37:15.000Z</published>
-    <updated>2018-11-28T07:39:46.487Z</updated>
+    <updated>2018-11-28T07:57:16.142Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;flask中应用蓝图实现注册接口:&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
-        
-      
+      &lt;p&gt;flask中应用蓝图实现注册接口:&lt;/p&gt;
     
     </summary>
     
@@ -138,17 +131,11 @@
     <link href="http://yoursite.com/2018/01/08/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
     <id>http://yoursite.com/2018/01/08/单例模式/</id>
     <published>2018-01-08T07:37:15.000Z</published>
-    <updated>2018-11-28T07:38:16.270Z</updated>
+    <updated>2018-11-28T07:58:31.972Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;单例模式&quot;&gt;&lt;a href=&quot;#单例模式&quot; class=&quot;headerlink&quot; title=&quot;单例模式&quot;&gt;&lt;/a&gt;单例模式&lt;/h2&gt;&lt;p&gt;Python中类是通过&lt;strong&gt;new&lt;/strong&gt;来创建实例, 这个类从始至终只有一个实例,
-        
-      
+      &lt;h2 id=&quot;单例模式&quot;&gt;&lt;a href=&quot;#单例模式&quot; class=&quot;headerlink&quot; title=&quot;单例模式&quot;&gt;&lt;/a&gt;单例模式&lt;/h2&gt;&lt;p&gt;Python中类是通过&lt;strong&gt;new&lt;/strong&gt;来创建实例, 这个类从始至终只有一个实例, 用到&lt;code&gt;__new__&lt;/code&gt;方法&lt;/p&gt;
     
     </summary>
     
