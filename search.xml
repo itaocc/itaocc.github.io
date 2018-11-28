@@ -11,19 +11,47 @@
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
   <entry>
-    <title><![CDATA[一些应用]]></title>
-    <url>%2F2018%2F01%2F08%2F2nd%2F</url>
-    <content type="text"><![CDATA[添加标签分类, 还有第三方文件typora的使用 https://typora.io/#windowshttps://baijiahao.baidu.com/s?id=1604123889806467436&amp;wfr=spider&amp;for=pchttps://blog.csdn.net/baozhiqiangjava/article/details/80556550]]></content>
+    <title><![CDATA[Django]]></title>
+    <url>%2F2018%2F01%2F08%2FDjango%E7%99%BB%E5%BD%95%E6%8E%A5%E5%8F%A3%2F</url>
+    <content type="text"><![CDATA[Django登录接口 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576from rest_framework.response import Responsefrom rest_framework.views import APIViewimport randomfrom django_redis import get_redis_connectionfrom ls.models import Userfrom rest_framework import exceptionsimport uuidclass Hello(APIView): def get(self, request): # 生成图形验证码 image_code = random.randint(1000, 9999) # 保存到redis数据库 redis_cli = get_redis_connection("default") user_id = uuid.uuid1() redis_cli.set(user_id, image_code) print(user_id) print(image_code) return Response(&#123;"image_code": image_code, "user_id": user_id&#125;) def post(self, request): data = request.data mobile = data.get("mobile") user_name = data.get("name") user_id = data.get("user_id") image_code = data.get("image_code") print(user_id) # 判断手机号 new_mobile = User.objects.filter(mobile=mobile).count() if new_mobile &gt; 0: raise exceptions.ValidationError("手机号已存在") # 判断用户名是否存在 new_user_name = User.objects.filter(username=user_name).count() if new_user_name &gt; 0: raise exceptions.ValidationError("用户名已存在") # 判断图形验证码 redis_cli = get_redis_connection("default") try: new_image_code = redis_cli.get(user_id) print(new_image_code) except: raise exceptions.ValidationError("查询错误") if int(image_code) != int(new_image_code): raise exceptions.ValidationError("验证码错误") # 发送短信验证码 sms_code = random.randint(100000, 999999) user_sms_code = user_name + mobile redis_cli.set(user_sms_code, sms_code) print(sms_code) return Response(&#123;"message": "ok"&#125;)class Register(APIView): def post(self, request): data = request.data mobile = data.get("mobile") user_name = data.get("name") sms_code = data.get("sms_code") redis_cli = get_redis_connection("default") new_sms_code = redis_cli.get(user_name + mobile) if int(new_sms_code) != sms_code: raise exceptions.ValidationError("验证码错误") user = User() user.mobile = mobile user.username = user_name user.save() return Response(&#123;"message": "ok"&#125;)]]></content>
       <categories>
-        <category>佛系分类</category>
+        <category>代码块</category>
       </categories>
       <tags>
-        <tag>佛系随记</tag>
+        <tag>接口</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[1st blog]]></title>
-    <url>%2F2017%2F11%2F08%2F1st-blog%2F</url>
-    <content type="text"><![CDATA[Hymn for the weekend]]></content>
+    <title><![CDATA[flask注册接口]]></title>
+    <url>%2F2018%2F01%2F08%2F%E6%B3%A8%E5%86%8C%E6%8E%A5%E5%8F%A3%2F</url>
+    <content type="text"><![CDATA[flask中应用蓝图实现注册接口: 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182# 注册提交# 注册也是前端点击，发送请求来后端，后端进行参数校验，将注册的数据保存到数据库，然后将保持登录的数据保存到redis中# 返回ok后，前端进行刷新页面@passport_bp.route("/register", methods=["POST"])def register(): """ 1 提取参数 2 参数验证 3 逻辑分析 4 返回数据 """ # 1 提取参数（提取表单提交的手机号，短信验证码与密码） json_data = request.json mobile = json_data.get("mobile", "") smscode = json_data.get("smscode", "") password = json_data.get("password", "") # 2 进行参数验证 if not all([mobile, smscode, password]): return jsonify(&#123;"errno": RET.PARAMERR, "errmsg": "参数不足"&#125;) if not re.match("1[3578][0-9]&#123;9&#125;", mobile): return jsonify(&#123;"errno": RET.PARAMERR, "errmsg": "手机号格式不对"&#125;) # 3 逻辑分析 # 3.1 最好在提交的时候再次判断用户手机号是否被注册，以防止用户在输入短信验证码后修改手机号 try: user = User.query.filter(User.mobile == mobile).first() except Exception as e: current_app.logger.error(e) return jsonify(&#123;"errno": RET.DATAERR, "errmsg": "查询用户手机号出错"&#125;) if user: return jsonify(&#123;"errno": RET.PARAMERR, "errmsg": "用户已经注册"&#125;) # 3.2 判断短信验证码是否正确 try: real_sms_code = redis_store.get("SMS_" + mobile) # print(redis_store.get("q")) except Exception as e: current_app.logger.error(e) return jsonify(&#123;"errno": RET.DBERR, "errmsg": "获取本地验证码失败"&#125;) print(real_sms_code) # 如果验证码为空 if not real_sms_code: return jsonify(&#123;"errno": RET.NODATA, "errmsg": "验证码过期"&#125;) if real_sms_code != smscode: return jsonify(&#123;"errno": RET.PARAMERR, "errmsg": "验证码错误"&#125;) # 获取到验证码后就把数据从redis数据库中删除 try: redis_store.delete("SMS_" + mobile) except Exception as e: current_app.logger.error(e) return jsonify(&#123;"errno": RET.DBERR, "errmsg": "redis删除获取到的验证码失败"&#125;) # 如果验证成功后就创建一个用户对象，添加到数据库中 user = User() user.mobile = mobile user.nick_name = mobile # 密码要进行加密处理（加密处理可以使用类中set和get的方法去实现） user.password = password # 添加到数据库中 try: db.session.add(user) db.session.commit() except Exception as e: current_app.logger.error(e) db.session.rollback() return jsonify(&#123;"errno": RET.DBERR, "errmsg": "存储数据库出错"&#125;) # 在redis中存储用户登录状态（此时还没写到注册模块，到时候就知道怎么为什么要这样写了） session["user_id"] = user.id session["nick_name"] = user.nick_name session["mobile"] = user.mobile print("ok") return jsonify(&#123;"errno": RET.OK, "errmsg": "ok"&#125;)]]></content>
+      <categories>
+        <category>代码块</category>
+      </categories>
+      <tags>
+        <tag>接口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Flask代码框架]]></title>
+    <url>%2F2018%2F01%2F08%2FFlask%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6%2F</url>
+    <content type="text"><![CDATA[Flask代码框架文件目录说明： Common：系统级配置 common/appconf.py 系统配置文件，用于不同环境可能修改的系统配置 common/applogger.py 日志模块代码 Conf：启动配置，和uwsgi有关联 Lib：公共库 Handler：业务代码 Handler/model：数据库表模块的定义 Common：公共函数、业务公共配置 Core_util：目前主要是异常处理，可以把common的和core_util合成一个 Common/mysql_session.py 数据库session（我们使用的是sqlachedemy） Common/op_Logs_interface.py 记录操作日志 Main.py 系统入口文件 123Handler/handlerfactory.py 所有接口的映射关系Handler/basehandler.py 接口基类，所有接口继承这个]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[单例模式]]></title>
+    <url>%2F2018%2F01%2F08%2F%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[单例模式Python中类是通过new来创建实例, 这个类从始至终只有一个实例, 用到__new__方法 代码1 123456789class A(object): _instance = None def __new__(cls, *args, **kwargs): if cls._instance is None: cls._instance = object.__new__(cls) return cls._instance else: return cls._instance 代码2: 12345678910111213class Singleton(object): def __new__(cls,*args,**kwargs): if not hasattr(cls,'_inst'): cls._inst=super(Singleton,cls).__new__(cls,*args,**kwargs) return cls._instif __name__=='__main__': class A(Singleton): def __init__(self,s): self.s=s a=A('apple') b=A('banana') print id(a),a.s print id(b),b.s]]></content>
+      <categories>
+        <category>代码块</category>
+      </categories>
+      <tags>
+        <tag>单例模式</tag>
+      </tags>
   </entry>
 </search>
