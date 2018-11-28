@@ -11,11 +11,91 @@
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
   <entry>
+    <title><![CDATA[面向对象编程和面向过程]]></title>
+    <url>%2F2018%2F01%2F11%2F5-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[主要简述相关知识点 1.面向对象编程对象: 指一个具体的事物/具体存在的某个实物 对象有两个部分组成: 属性: 用来记录对象的相关数据, 类似变量 方法: 用来实现与对象的相关操作, 对象的功能, 类似函数 优点: 将数据和业务抽象为对象, 有利于程序整体结构的设计和分析, 是设计思路更加清晰 业务以对象为单位, 对象各自完成工作, 减少了代码耦合度, 有助于代码升级和和代码重构 方便工作划分, 提高团队工作效率 2.面向过程的编程面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候一个一个依次调用就可以了 优点：性能比面向对象高，因为类调用时需要实例化，开销比较大，比较消耗资源，比如单片机、嵌入式开发、Linux/Unix等一般采用面向过程开发，性能是最重要的因素。缺点：没有面向对象易维护、易复用、易扩展]]></content>
+      <categories>
+        <category>基础知识</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[异常处理]]></title>
+    <url>%2F2018%2F01%2F11%2F7-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%2F</url>
+    <content type="text"><![CDATA[主要简述相关知识点 异常处理1.目的:提前预防bug,或者不让程序停掉, 而是给出一个提示; 代码出现bug, 程序会终止运行, 控制台上看到错误 把可能出错的代码放在try里面,尝试去执行 try不能单独存在, 必须和组合同时: 只有try里面代码出错才执行except代码, 若try里面正常, 不糊执行except,继续执行后面的代码 try内部代码出错, try内部后续代码不再执行, 而是执行对应except的代码;(try后面必须跟随except或finally) 内层代码出错, 内层except拦截成功对外层try 或者except就无影响; 反之,交给外层拦截 异常不会向内层传, 只要出错, 内部后续代码直接不走. 2.异常最基类 BaseException (但一般都写Exception就行了) except Exception as error: 什么错误都可以拦截,返回错误信息 except: 什么错误都可以拦截, 看不见错误信息; (except … as … 把异常找个变量存储起来，然后再输出) finally: 不管try里面代码有误出错, 都会执行 else: try里面代码没有出错才执行 3.自定义异常:内部已经写了异常模块 try内部代码出错, 自动提起raise,写了n种判断, 根据错误类型去一个类里面创建一个指定类型的实例对象 让错误提示信息更加可读(提示中文的) 内部抛出异常时代码出错才会(错误数据已经用了才)所以可以提前干预, 在代码没有真正出错前, 就提示错误 批量抛出, 统一在一个地方拦截, 让流程简化 自定义异常一定要继承Exception类]]></content>
+      <categories>
+        <category>基础知识</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[文件操作]]></title>
+    <url>%2F2018%2F01%2F11%2F4-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[主要简述相关知识点 1. 文件操作1.1文件操作:​ import os​ (直接写文件名表示操作当前路径下的文件夹，也可写绝对路径) os.rename(&quot;文件名&quot;, &quot;新文件名&quot;) # 文件重命名 os.remove(&quot;文件名&quot;) # 删除文件 open默认是只读, 编译和解译要统一 “r”模式打开文件,如果文件不存在会报错 “w”模式, 文件不存在时会创建新文件//文件以及存在, 会覆盖已有内容 最后记得关闭文件f.close() with open(“文件名”, “模式”) as f: ​ f.write(“文件内容”) 格式中可以是f.write或者f.read 模式有w, r, a , rb, w+ 1.1.1 文件读取​ 1、read() 函数默认会将文件中所有内容全部读出，如果读取⼤大型⽂文件，就会出现内存峰值 ​ 2、大文件读取解决办法： ​ (1) 可以⽤用read(指定读取字符数) ​ (2)readline() 每次读取一行数据 (3)readlines() 一次全部读出，返回列表，每行内容 是一个元素 1.1.2 文件备份主要原理，读取旧文件，写⼊新⽂件，但注意大文件读取问题，可以采⽤用读一行写⼀行 1.1.3 文件定位文件的读写都会改变文件的定位, 即文件的光标位置; 在读写文件的过程中，如果想知道当前的位置，可以使用tell()来获取 如果在读写文件的过程中，需要从另外一个位置进行操作的话，可以使用seek() 1234567seek(offset, whence)有2个参数offset:偏移量whence:方向0:表示文件开头1:表示当前位置2:表示文件末尾 Python3中只能对文件开头设置偏移 whence为1或2时，offset只能为0 1.2文件夹操作:​ import os (直接写文件夹名表示操作当前路径下的文件夹，也可写绝对路径) os.mkdir(&quot;文件夹名&quot;) # 创建文件夹 os.getcwd() # 获取当前路径 os.chdir(&quot;路径&quot;) # 修改当前路径 os.listdir(&quot;文件夹名&quot;) # 获取当前文件夹下的所有目录 os.rmdir(&quot;文件夹名&quot;) # 删除文件夹(默认只能删除空文件夹) os.path.exists(&quot;card_file.txt&quot;) # 当前路径下的该文件是否存在(存在True) 相对路径:当前路径下的(文件名+后缀)绝对路径:具体路径(路径+文件名+后缀)]]></content>
+      <categories>
+        <category>基础知识</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[闭包和装饰器]]></title>
+    <url>%2F2018%2F01%2F11%2F8-%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[主要记录闭包和装饰器相关知识点]]></content>
+      <categories>
+        <category>基础知识</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[类和继承]]></title>
+    <url>%2F2018%2F01%2F11%2F5-%E7%B1%BB%E5%92%8C%E7%BB%A7%E6%89%BF%2F</url>
+    <content type="text"><![CDATA[主要简述类是什么, 还有继承关系, 类属性, 实例属性等 1.类1.1 一些概念类: 用来描述对象特征和行为, 是一个事物/对象共同特征的抽象概念 类是创建对象的模板, 用来定义对象的公共行为, 每个对象必须有一个对应的类 类属性: 在类的里面, 方法的外面定义的属性 ​ (1) 使用场景: 属性记录的数据不同时, 定义实例属性; 属性记录的数据始终相同时, 定义类属性 ​ (2) 如果通过类创建出来的对象它们的某个属性记录的值都一样，尽量把这个实例属性换成类属性 ​ (3) 类属性定义的格式: 在类的内部, 方法的外部; 直接像定义变量一样 ​ (4) 类属性可以私有, 私有后只能在内的内部使用, 前面加双下划线 ​ (5) 修改类属性时, 只能通过类对象 ​ (6) 实例对象不能修改类属性, 若非这样做, 结果是创建了一个新的实例属性 ​ (7) 类对象和实例对象都可以访问类属性 注意: 类属性和实例属性尽量不要同名; 同名时, 各自优先访问自己的属性,即实例对象优先访问实例属性, 类对象优先访问类属性 实例属性: 在__init__方法定义的属性或者每个实例对象独有的属性 类对象:类名即为类对象 实例对象: 通过类创建出来的对象 实例方法: 形参为self的方法 私有属性: 在实例属性名字前面加双下划线, 可以让属性私有, 该属性只能在类的定义内部使用; 一般需要给私有属性提供set方法设置条件,用get方法来获取私有属性的值 私有方法: 方法名前加双下划线, 只能在类的定义里面使用( 只是内部使用 ) 1.2 定义类和创建对象​ 1、创建对象之前, 必须先定义对应的类; 类名命名规范：大驼峰命名法 ​ 2、类中可以定义对象的方法，定义方法和定义函数类似，但是方法会自动添加第一个形参为self ​ 3、创建对象 ：类名() ​ 4、调用对象方法 ：对象名.方法名() ; 调⽤方法时，不要传递self对应的实参 一个类可以创建多个对象, 同一个类创建的对象, 都可以调用类中创建的方法 同一个类创建的对象, 可以有同名的属性, 且同名属性的值可以不相同 1.3 定义属性​ 1、属性和变量类似，对象.属性 = “xx” , 首次赋值会定义属性 ​ 2、再次赋值只是修改属性记录的值 1.4 self, __init__和__str__1.4.1 self的作用​ 1、self 表示当前调用该方法的对象 ​ 2、在方法中使用对象的属性时，用self来访问，不要直接去用对象访问 ​ 3、Python解释器会隐式的将调用方法的对象作为第一个实参进行传递 1.4.2 __init__方法​ 1、在Python中 xx() 双下划线的方法⼀般叫魔法方法 （运算符重载方法）都具有特殊含义，并且在特定的情况下自动调用 ​ 2、创建对象时，init 方法会自动调用来进行定义对象的属性; ​ 3、init 初始化方法（构造方法）主要用于做对象的初始化操作，如定义属性 ​ 4、想要自定义属性的初始值，可以设置init的自定义参数 ; ​ 5、自定义属性的初始值，需要给ini方法添加形参，init⽅方法对应的实参需要在创建对象时类名后面括号中去传递，注意一一对应 1.4.3 __str__方法​ (1) 当用print去输出对象时会自动调用 ​ (2) 自定义对象的输出，输出对象时，实际就是把str方法的返回值给输出了 ​ (3) 只能返回字符串类型的数据 1.5 类方法 如果方法专门是用来操作属性的, 最好把方法定义成类方法 如果方法中只需要用类对象, 不需要实例对象时, 可以把方法定义为类方法 @classmethod # 修饰符, 语法糖 装饰器, 在此修饰符下面定义的第一方法即为类方法 类方法自动成生的第一个形参为cls , 调用时自动传递的一个实参是类对象 1.6 静态方法​ 1.@staticmethod修饰符下面定义的第一个方法为静态方法 ​ 2.静态方法不会再自动生成self和cls的形参 ​ 3.调⽤用静态方法时，也不会再自动传递self或cls对应的实参; ​ 4.当外面里面不用类对象也不用实例对象时，为了减少内存浪费及减少不必要的形参, 就定义静态⽅方法 魔法方法也是静态方法，静态⽅方法不会自动传递self或cls对应的实参 1234class 类名: @staticmethod def 方法(): print("") 1.7 new方法作用:创建并返回一个新的实例对象 new的cls形参对应的实参需要手动传递，要创建哪个类的实例对象就应该传递哪个类对象 创建对象时底层的操作: ​ 1、类对象调⽤用了__new__方法进行开辟内存空间; new方法是静态方法注意传递实参 ; object类实现了new ​ 2、对象初始化 , 实例对象.__init__ ​ 3、返回创建好的对象，赋值给变量量 1.8 单例模式让某个类创建出来的对象始终只有一 个，让某个类创建出来的对象内存地址是同一个 ​ 1、一个对象中的数据或方法被很多个对象共用时，可以使用单例模式 ​ 2、让创建对象及初始化的代码只执行一次，后面只是返回之前已经创建好的对象 ​ 3、定义一个类属性用来记录创建出来的实例对象，定义一个类属性用来判断对象是否已经初始化 ​ 4、单例对象，只能创建出一个对象，只能初始化 一次 注意：要修改类属性的值，必须用类对象，当前类重写了__new__方法，在创建对象时，只能用 object去调⽤用__new__方法，不然会死循环; 后面每一次创建都是把之前已经创建好的实例例对象返回 12345678class ShoppingCart: instance = None # 这个类属性记录用来创建好的实例对象 has_init = False # 这个类属性用来记录对象是否已经初始化 def __new__(cls, *args, **kwargs): if cls.instance is none: # if语句判断object的new方法是否执行 # 让object中的new方法只执行一次, 后面再次创建都是直接返回之前创建好的对象 cls.instance = object.__new__(cls) return cls.instance 2. 类的继承概念: 如果B类中的方法或者属性和B类一样, 可以让B类继承A类, B类继承A类后, 就可以拥有A类中所有方法和属性; B类继承A时, 那么B类就是A类的子类, 反过来, A类就是B类的父类 格式: class 类名(父类) 面向对象的代码中, 所有的类最终都会继承到object 继承, 公用类, B和C都是A的子类, B类和C类都拥有A的属性或方法 2.1 重写父类方法父类的方法不能满足子类的需求时, 重写一个同名的方法 调用方法根据继承链: 当前类—&gt;父类—&gt;….—&gt; object 子类重写父类方法后, 优先调用给自己的方法, 不会调用父类中已经被重写的方法(尽量不要改父类方法) 2.2 调用父类重写的方法​ 特殊情况下, 父类方法重写后, 但是还需要调用之前父类的方法,这个时候需要手动调用 方式一: 格式: 父类类名.方法(self) # (类对应多个实例对象, 故手动传self形参) 方式二: super(实例对象, self).eat() # 根据里面第一个实参自动去找指定类的父类属性(eat是案例中的方法) ​ super(类对象, 实例对象) # 如果当前指定类对象就是当前类,此参数可以省略; 如果super中的要传递的对象就是super代码所在方法中那个self, 此参数也可以省略 执行底层变成了方式一, 更加灵活 ​ super().eat() # 如果是单继承 ,尽量此方法调用 2.3 __init__方法和属性继承子类可以继承父类中的属性，创建子类的对象时会调用父类的init 如果子类想要定义自己独有的属性时，需要重写父类的init⽅方法，如果还想拥有父类的属性，需要⼿手动调用父类的init方法 ; 调用父类init方法时，尽量写在定义自己属性的前面 123def __init__(self): super().__init__() self.属性 = "XXX" 2.4 私有属性和方法的继承私有属性和方法是不会被继承的, 但是可以通过其它方式间接使用 2.5 多继承格式： class 类名(父类1， 父类2) 父类前后顺序会影响它的继承链 __mro__ 可以查看当前继承链 多个继承时, 多个父类中有同名方法, 此时重写父类方法可调用到指定父类中的方法, 尽量用类对象直接调用, 注意要传递self 调用时, 方法里面设置的是形参,只要有对应的属性可以传递过来,(解释你使用父类也想使用子类) 多态: 子类继承了父类所有的属性和方法, 所以使用父类对象的地方,可以使用子类的对象,反之则不可以。需要一个例子(什么是父类的对象) 2.6 鸭子类型封装, 继承, 多态 不强求数据的类型，只要传递过来的数据可以完成后续操作，不报错就可以]]></content>
+      <categories>
+        <category>基础知识</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[类和继承]]></title>
+    <url>%2F2018%2F01%2F11%2F6-%E7%B1%BB%E5%92%8C%E7%BB%A7%E6%89%BF%2F</url>
+    <content type="text"><![CDATA[主要简述类是什么, 还有继承关系]]></content>
+      <categories>
+        <category>基础知识</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[函数和参数]]></title>
+    <url>%2F2018%2F01%2F11%2F3-%E5%87%BD%E6%95%B0%E5%92%8C%E5%8F%82%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[主要介绍和记录关于函数和参数的描述 1.函数函数作用优点：（1）增加代码可读性（2）提升开发效率（3）增加复用行 函数的名称：应该能够简单明确的表达 函数功能，以方便后续的调用 当代码执行到函数时，只会执行定义函数名的那一行，不会执行函数内部的代码当调用函数时，直接执行函数内部的代码，不会再执行定义的那行代码 return（1）return后面不要直接写代码, 函数一旦执行到return即终止, 同级后面代码不再执行（2）return可以一次返回多个值，或一个值不返回，返回多个值，会组包元组（3）一个函数中可以有多个return，但只会执行其中的一个 局部变量：（1）在函数内部定义的变量（2）只能在函数内部使用（3）局部变量不要和形参及全局变量同名（4）不同函数中可以有同名的局部变量 尽量使用局部变量降低耦合度 全局变量：（1）在函数外部定义的变量（2）在定义变量的后面整个.py都可以使用，真实开发少用全局变量（3）如果在函数内部给某个变量赋值默认都是定义一个新的局部变量（4）如果在函数内部想要用等号的方式重新给全局变量赋值，需要global声明变量为全局变量 优点: 整个文件都可以使⽤, 简单⽅便 缺点: 始终占用内存, 直到程序终止; 容易产生依赖 选择: 文件中多个位置使用该数据, 或者函数关系复杂传递数据很繁琐, 可以用全局变量 2.参数参数的4种类型：（1）普通参数：位置参数（形参和实参必须一一对应）（2）默认参数：给参数设置了默认值（默认参数要放在非默认参数后面）（3）关键字参数：给指定的形参设置真实的数据（想要给指定的默认参数设置参数时以关键字参数的方式去指定, 一般有默认参数时才用到）（4）可变参数：需要在形参前面加，但在函数内部使用时就不用加（不定长参数, 可以接收0个或多个实参，并包装成元组） 参数混合使用遵从顺序: 位置参数–&gt; 可变参数（元组型）–&gt; 默认参数–&gt; 可变参数（字典型） 优点：函数执⾏完，占⽤的空间就会回收 缺点：如果两个函数没有直接关系，传递数据就会比较复杂 优先选择：当两个函数有直接或间接联系时使⽤该⽅方式 3.其他可变类型: 存储的数据可以修改,并且内存地址不变,比如: 列表, 字典 不可变: 存储的数据不可被修改, 比如 : 字符串, 元组, 整形, 浮点型, 布尔型 不可变的,值修改后,母体不变,需要重新接收,此时返回的就是一个新的地址 可变的,进行增删改后,不需要重新接收, 地址不变,但是值已经更改 如果想一个py文件被正常导入,当模块使用格式,文件名不能以数字开头,尽量不写中文,文件名是作为标识符(名字的命名有格式要求) ; 格式: import 模块名 默认参数不要用可变类型,值可变,内存地址不变,值被改变时不会被释放,会一直留存着 4.变量引用(1) 变量它存的不不是值，⽽是值在内存空间中的地址 (2) 变量与变量之间赋值，不是值的传 递，⽽是内存地址的传递 (3) 把列表或字典赋值给另⼀个变量时，两个变量中的某⼀一个变量对列表或字典进⾏增删改操作，另一个变量中的数据也会跟着发⽣生变化 (4) 元组中的数据不能替换，但是如果元组中的元素是列表或字典时，列表或字典这个元素不能被替换，但可以对它们进行增删改操作 (5) 字符串缓存: 字符串最大缓存位数是20位 在20位以内, 不管字符串时直接写出来还是其他方式得到的, 只要值一样, 内存地址就一样 超过20位以后, 只要值不是直接写出来的吗内存地址就不一样 (6) 小数缓存池: 区间:[-5, 526]内, 两个值的内存地址是一致的 正数值超过256: 只要是直接写出来的, 内存地址一样; 反之不是直接写出来的, 内存地址不一样 负数小于-5, 值一样, 地址不一样]]></content>
+      <categories>
+        <category>基础知识</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[迭代器和生成器]]></title>
     <url>%2F2018%2F01%2F10%2F2-%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8%2F</url>
     <content type="text"><![CDATA[迭代器和生成器迭代: 访问集合元素的一种方式. 通常把使用for循环取数的过程称为遍历, 也叫迭代. 可迭代对象（Iterable）: 把可以通过for…in…这类语句迭代读取⼀条数据供我们使⽤的对象称之为可迭代对象. 很多容器都是可迭代对象(iterable), 并不是所有容器都是可以迭代的;但凡可以返回一个迭代器的对象都是可迭代对象; 容器: 这个称呼在其他博客上看到的, 了解下; 一种把多个元素组织在一起的数据结构，容器中的元素可以逐个地迭代获取，可以用in, not in关键字判断元素是否包含在容器中 . 常见的str, list, set, dict都是容器 可以使用 isinstance() 判断一个对象是否是 Iterable 对象 12345678from collections import Iterableprint(isinstance([], Iterable)) # 判断列表print(isinstance((), Iterable)) # 判断元组print(isinstance(&#123;&#125;, Iterable)) # 判断字典print(isinstance("", Iterable)) # 判断字符串print(isinstance(100, Iterable)) # 判断整数print(isinstance(False, Iterable)) # 判断boolean 1.迭代器iterator迭代器: 任何实现了__iter__和__next__()（python2中实现next()）方法的对象都是迭代器; __iter__返回迭代器自身，__next__返回容器中的下一个值，如果容器中没有更多元素了，则抛出StopIteration异常 在遍历过程中就应该有一个“人”去记录每次访问到了第几条数据，以便每次迭代都可以返回下一条数据。我们把这个能帮助我们进行数据迭代的“人”称为迭代器(Iterator)。可迭代对象的本质就是提供一个这样的中间“人”即迭代器帮助我们对其进行迭代遍历使用。 可迭代对象的本质就是提供一个这样的中间“人”即迭代器帮助我们对其进行迭代遍历使用 可迭代对象是一个具备了__iter__方法的对象，通过__iter__方法获取可迭代对象的迭代器 迭代器本质上是一个产生值的工厂，每次向迭代器请求下一个值，迭代器都会进行计算出相应的值并返回。 可以通过iter()函数获取这些可迭代对象的迭代器, 然后可以对获取到的迭代器不断使用next()函数来获取下一条数据。 12345678li = [11, 22, 33, 44, 55]# 通过iter() 取得可迭代对象的迭代器iterator = iter(li)# 通过next()函数取得iterator迭代器指向的下一个值print(next(iterator))print(next(iterator)) 1.1 __iter__和__next__迭代器首先是一个可迭代对象, 可迭代对象必须实现__iter__方法 迭代器同时要能够返回可迭代对象的下一个值，所以当调用next()函数的时候，需要能够返回值，所以必须定义next方法； 1.2 for循环for item in Iterable 循环的本质就是先通过iter()函数获取可迭代对象Iterable的迭代器，然后对获取到的迭代器不断调用next()方法来获取下一个值并将其赋值给item，当遇到StopIteration的异常后循环结束。 1.3 代码实例:12345678910111213141516171819202122232425262728293031323334353637import collectionsclass MyClassmate(object): def __init__(self): self.names = [] # 声明一个列表 self.current = 0 # 记录迭代器迭代的位置， 默认是0 ，即从起始位置开始 def add(self, name): self.names.append(name) def __iter__(self): """通过该方法取得迭代器对象""" return self def __next__(self): """取得下一个迭代的值""" if self.current &lt; len(self.names): name = self.names[self.current] self.current += 1 return name else: raise StopIteration# 创建MyClassmate实例my_classmate = MyClassmate()my_classmate.add("小王")my_classmate.add("小李")my_classmate.add("小张")# 测试MyList是不是可迭代对象print(isinstance(my_classmate, collections.Iterable))# 遍历数据for name in my_classmate: print(name) 1.4 应用场景斐波拉契序列 12345678910111213141516171819202122232425262728293031class FibIterator(object): """斐波那契数列迭代器""" def __init__(self, n): """初始化属性""" self.n = n # 记录生成fibonacci的数列的个数 self.current_index = 0 # 记录当前遍历的下标 # 记录fibonacci数列前面的两个值 self.num1 = 0 self.num2 = 1 def __next__(self): """被next()函数调用来获取下一个数""" if self.current_index &lt; self.n: num = self.num1 self.num1, self.num2 = self.num2, self.num1 + self.num2 self.current_index += 1 return num else: raise StopIteration def __iter__(self): """迭代器的__iter__返回自身即可""" return selfif __name__ == '__main__': fib = FibIterator(10) for num in fib: print(" ", num, end="") 运行结果: 0 1 1 2 3 5 8 13 21 34 2.生成器generator生成器: 可以理解为一个特殊的迭代器。调用这个函数就得到一个迭代器，生成器中的yield相当于一个断点，执行到此返回一个值后暂停，从而实现next取值。 任意生成器都是迭代器（反过来不成立） 任意生成器，都是一个可以延迟创建值的工厂 它不需要再像上面的类一样写__iter__()和__next__()方法了，只需要一个yiled关键字。 2.1 创建生成器方法2.1.1 把列表生成式的[] 改成()12345678# 参考列表生成式L=[x*2 for x in range(6)]print(L) # 输出结果:[0, 2, 4, 6, 8, 10]# 把[] 改为() :就是一个简单的列表生成器G=(x*2 for x in range(6))print(G) # 输出的是生成器对象: &lt;generator object &lt;genexpr&gt; at 0x7ff7f8bbd5c8&gt; 2.1.2 列表生成式用生成器实现斐波拉契序列 12345678def fib(): """斐波拉契函数""" prev, curr = 0, 1 while True: yield curr prev, curr = curr, curr + prevf = fib()print(list(islice(f,0, 10))) # 输出结果是[1, 1, 2, 3, 5, 8, 13, 21, 34, 55] fib就是一个普通的python函数，它特殊的地方在于函数体中没有return关键字，函数的返回值是一个生成器对象。当执行f=fib()返回的是一个生成器对象，此时函数体中的代码并不会执行，只有显示或隐示地调用next的时候才会真正执行里面的代码。 另外一种写法: 12345678910111213141516171819def fib(n): curr_index = 0 num1, num2 = 0, 1 while curr_index &lt; n: """ 1. 假如函数中有yield，则不再是函数，而是生成器 2. yield 会产生一个断点 3. 假如yield后面紧接着一个数据，就会把数据返回， 作为next()函数或者for ...in...迭代出的下一个值 """ yield num1 num1, num2 = num2, num1 + num2 curr_index += 1 if __name__ = '__main__': G = fib(5) # # 假如函数中有yield，则不再是函数，而是一个生成器 # 生成器是一种特殊的迭代器 for num in G print("", num, end="") # 输出0 1 1 2 3 5 2.2 生成器总结 使用了yield关键字的函数不再是函数，而是生成器。（使用了yield的函数就是生成器） yield关键字有两点作用： 保存当前运行状态（断点），然后暂停执行，即将生成器（函数）挂起 将yield关键字后面表达式的值作为返回值返回，此时可以理解为起到了return的作用 可以使用next()函数让生成器从断点处继续执行，即唤醒生成器（函数） 2.3 使用send我们除了可以使用next()函数来唤醒生成器继续执行外，还可以使用send()函数来唤醒执行。使用send()函数的一个好处是可以在唤醒的同时向断点处传入一个附加数据。 执行到yield时，gen函数会暂停，返回i的值; temp接收下次obj.send(“haha”)发送过来的值，next(obj)等价obj.send(None) 123456789101112131415161718192021222324def gen(): i = 0 while i &lt; 5: temp = yield i print(temp) i += 1if __name__ == '__main__': obj = gen() # 取得生成器对象 # 使用next()唤醒生成器 print(next(obj)) print(next(obj)) # 使用send唤醒生成器 ，在唤醒的同时向断点处传入一个附加数据 print(obj.send("haha")) # 使用next()唤醒生成器 print(next(obj)) # 使用send唤醒生成器 ，在唤醒的同时向断点处传入一个附加数据 print(obj.send("python"))]]></content>
       <categories>
         <category>基础知识</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[数据类型]]></title>
+    <url>%2F2018%2F01%2F10%2F1-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%2F</url>
+    <content type="text"><![CDATA[数据类型列表list, 字符串str, 元组tuple, 字典dict, 集合set (还有一种zset) 数字类型Number(整型int/浮点型float), 布尔型bool 可以参考下菜鸟教程http://www.runoob.com/python3/python3-data-type.html 可变对象: 列表, 字典, 集合 不可变对象: 字符串, 元组, 数字 可迭代: 列表, 字典, 元组(元组比较特殊), 字符串 不可迭代: 数字类型, 布尔型 关于迭代见笔记-迭代器和生成器 1.列表List（列表） 是 Python 中使用 最频繁 的数据类型，在其他语言中通常叫做 数组 一：增（列表）​ 1，列表.insert(索引,数据) 在指定位置插入数据（位置前有空元素会自动补位） ​ 2，列表.append(数据) 在末尾追加数据 ​ 3，列表.extend(lterable)将可迭代对象中 的元素追加到列表 二：删（列表）​ 1.del列表[索引] 删除指定索引的数据 ​ 2.列表.remove(数据) 删除第一个出现的指定数据 ​ 3.列表.pop() 删除末尾数据，返回删除的元素 ​ 4.列表.pop(索引) 删除指定索引数据 ​ 5.列表.clear 清空列表 del和pop的区别是, del 没有返回值 三:改（列表）​ 1.列表[索引]=数据 修改指定索引的数据，数据不存在会报错 四:查（列表）​ 列表[索引] 根据索引取值，索引不存在会报错 ​ 列表.index(数据) 根据值查询索引，返回首次出现时的索引，没有查到会报错 ​ 列表.count(数据) 数据在列表中出现的次数 ​ len(列表） 打印列表的长度 ​ if数据in列表 检查列表中是否包含某元素, count是否为0来进行判断 五：排序（列表）​ 列表.sort() 升序排列 ​ 列表.sort(reverse=True) 降序排列 列表.sort(reverse=False) 升序排列 ​ 列表.reverse()逆序，反转 12list1 = ['2', '5', 1, 6, 8, '9]list1.sort(key=int) # 这里的key指定了排序的规则 2.元组Tuple（元组）与列表类似，不同之处在于元组的元素不能修改, 只能获取(查询操作) 注意: 元组的元素尽量为同类型的数据 一：查（元组）​ 1，元组[索引] 根据索引取值，索引不存在报错 ​ 2，元组.index(数据) 根据值查询索引，没有查到会报错 ​ 3,元组.count(数据) 数据在元组中出现的次数 ​ 4,len(列表) 元组长度 ​ 5,if数据in元组:检查元组中是否包含某元素 1tuple1 = (10,) # 元组里的元素只有一个的时候, 后面需要加上逗号, 否则, 输出时它会自动转换类型/解包 应用场景: 自动解包组包, 数值交换, 格式化字符串, 保护数据的安全性 3.字典dictionary（字典） 是 除列表以外 Python 之中 最灵活的数据类型; 字典是使用键值对存储的数据类型, 键值用,分隔 ​ 键(key): 是索引, 只能使用字符串,数字或者元组; 必须是唯一的 ​ 值(value): 可以是任何数据类型 ​ 应用场景: 使用多个键值对, 存储描述一个物体的相关信息(描述更复杂物体的信息); 将多个字典放入列表, 再进行遍历, 循环体内部再对每个字典进行相同的处理 列表/字典在进行增删改操作时, 本尊直接发生变化; 不需要接收新的数据; 元组/字符串进行修改时, 本尊不变, 生成一个新的数据, 要接收新的数据. 一：增（字典）​ 1,字典[键]=数据，键不存在会修改键值对，键存在会修改键的值 ​ 字典的增加和修改一样, 如果key不存在, 那么就直接增加到字典后面;索引必须唯一(有重复的,后面会覆盖前面的) 二：删（字典）​ 1,del字典[键] 删除指定的键值对 ​ 2,字典.pop(键) 删除指定的键值对,返回被删除的值 ​ 3,字典.clear 清空字典 三：改（字典）​ 1,字典[键]=数据 键不存在，会添加键值对，键存在会修改键的值 ​ 2，字典.setdefault(键,数据) 键不存在，会添加键值对；存在则不做处理 ​ 3.字典.updete(字典2) 取出字典2的键值对，键值对不存在，添加键值对，存在则修改值 四：查（字典）​ 1,字典[键] 根据键取值，键值对不存在会报错 ​ 2,字典.get(键) 根据键取值，键值对不存在不会报错 ​ 3,字典.keys() 可以进行遍历，获取所有键（视图对象） ​ 4,字典.velues() 可以进行遍历，获取所有值（视图对象） ​ 5,字典.items() 可以进行遍历，获取所有(键,值)（视图对象） ​ （视图对象可以减少内存占用） 4.字符串一：字符串的常用操作​ 1,string.isalpha() 如果strint至少有一个字符串并且所有字符都是字符则返回True ​ 2,string.isdecimal()如果string只包含数字则返回True ​ 3,string.islower() 如果string中包含至少一个区分大小写的字符，并且所有这写（区分大小写的）字符都是小写，则返回True ​ 4,string.isupper()如果string中包含至少一个区分大小写的字符，并且所有这写(区分大小写的）字符都是大写，则返回True ​ 5.string.startswith(str) 检查字符串是否以str开头，是则返回True ​ 6.string.endswith(str) 检查字符串是否以str结束,是则返回True 二:查找和替换​ 1,string.find(str,start=0,end=len(stribg)),检测str是否包含在string中，如果start和end指定范围，则检查是否包含在指定范围内，如果是返回开始的索引值，则返回 -1 ​ 2,string.rfind(str,start=0,end=len(string)) 类似于find()，不过是从右边开始查找 ​ 3,string.index(str,start=0,end=len(string) 类似于index(),不过是从右边开始 ​ 4,string.replace(old_str,new_str,num=string.count(old) 返回一个新字符串，把string中的old_str替换成new_str,如果num指定,则替换不超过num次 三：拆分和连接​ string.partition(str) 返回元组，把字符串string分成一个3元素的元组(str前面,str,str后面) ​ string.rpartition(str) 类似partition()方法，不过是从右边开始查找 ​ string.split(str””,num) 返回列表，以str为分隔符拆分string，如果num有指定值.则仅分割num+1 个子字符串，str默认包含’\r’\t’\n’和空格 ​ string.splitlines()返回列表,按照行(‘\r’,\n’,’\r\n’分割 ​ string.join(seq) 返回字符串，以string作为分隔符，将seq中所有的元素(字符串表示)合并为一个新的字符串 ​ string.lower()返回一个新字符串，转换string中所有的大写字符为小写 ​ string.upper() 返回新字符串，转换string中的小写字母为大写 str1.join(list1) 以str1指定的符号(如”-“或”/“)把列表list1的每个字符串元素拼接成新字符串, 和”+”的效果类似 切片: 适用于字符串, 列表和元组; 即取出字符串的一部分字符(元组的操作需要先转换成列表再操作) 结束部分是不包含的! 格式: 字符串[开始索引, 结束索引, 步长], 步长不写的时候默认值为1 步长为1表示反转/倒序, str1[::-1] 下一个要取的字符索引 = 当前正在取的索引 + 步长 四：文本对齐​ string.ljust(width) 左对齐 ​ string.rjust(width) 右对齐 ​ string.center(width) 居中 5.集合集合（set）是一个无序的不重复元素序列。 可以使用大括号 { } 或者 set() 函数创建集合，注意：创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典。 创建格式：set(value)或者set1 = {value1, value2, ...} set()函数的主要作用是可以让列表或者元组的数据去重 一.添加元素:set1.add(value), 若value已经存在, 不进行任何操作 set1.update(value), 且参数可以是列表，元组，字典等, value可以有多个, 用,隔开 二.移除元素:set1.remove(value), 删除指定元素, 如果value不存在, 会报错 set1.discard(value), 如果value不存在, 会报错 set1.pop(), 随机删除元素 set1.clear(), 清空集合 三.交集, 并集, 差集set1 &amp; set2, 交集 set1 | set2, 并集(合集) set1 - set2, 差集 zset是redis中的有序集合]]></content>
+      <categories>
+        <category>基础知识</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[字典排序]]></title>
+    <url>%2F2018%2F01%2F08%2F1-%E5%AD%97%E5%85%B8%E6%8E%92%E5%BA%8F%2F</url>
+    <content type="text"><![CDATA[字典排序的方法 zip 1234567891011from random import randintd= &#123;k:randint(0,20) for k in 'abcdefg'&#125;#&#123;'f': 10, 'g': 16, 'a': 18, 'c': 12, 'e': 16, 'd': 7, 'b': 16&#125;z = list(zip(d.values(),d.keys()))# zip函数就是将输入的序列重新组合成每个元素都是元组的列表，其中每个元素由输入序列相同位置的元素组成#[(10, 'f'), (16, 'g'), (18, 'a'), (12, 'c'), (16, 'e'), (7, 'd'), (16, 'b')]print(sorted(zip(d.values(),d.keys())))#[(7, 'd'), (10, 'f'), (12, 'c'), (16, 'b'), (16, 'e'), (16, 'g'), (18, 'a')] 匿名函数 12print(sorted(d.items(),key = lambda k : k[1]))#[('d', 7), ('f', 10), ('c', 12), ('g', 16), ('e', 16), ('b', 16), ('a', 18)] 使用operator.itemgetter 1234import operatorprint(sorted(d.items(), key=operator.itemgetter(1)))#[('d', 7), ('f', 10), ('c', 12), ('g', 16), ('e', 16), ('b', 16), ('a', 18)]]]></content>
+      <categories>
+        <category>代码块</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[列表去重]]></title>
+    <url>%2F2018%2F01%2F08%2F1-%E5%8E%BB%E9%87%8D%2F</url>
+    <content type="text"><![CDATA[去重方法的代码去重的一些方法 1.set()函数1set(list1) # 列表list1有重复元素时可直接去重, 无法保持原来的顺序 2.for循环去重1234567list1 = [1, 2, 3, 2, 4, 3]tem_list = []for i in list1: if i not in tem_list: tem_list.append(i)print(tem_list) 3.index索引去重列表中取出来的数的索引和index返回第一次的索引不相同,即为重复 (代码要校验下) 123456list1 = [1, 2, 3, 2, 4, 3]i = 0while i &lt; len(list1): if i != index(list1[i]): del list1[i] return list1 4.while循环去重12345def delRepeat(lists): for i in lists: while list.count(i) &gt; 1: del lists[lists.index(i)] return lists 5.列表推导式123list1 = [1, 2, 3, 2, 4, 3]func = lamda x,y : x if y in x else x + [y]reduce(func,[[],] + list1) 注: 列表推导式更多用来过滤数据 基本语法: list1 = [表达式/计算公式 for循环 if判断] 表达式可以不用for循环的值, 也可以不用if判断 特点: 每循环一次, 将计算公式的结果添加到列表中; 计算公式可以用for遍历的数据; 支持条件判断]]></content>
+      <categories>
+        <category>代码块</category>
       </categories>
   </entry>
   <entry>
@@ -41,17 +121,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Flask代码框架]]></title>
-    <url>%2F2018%2F01%2F08%2FFlask%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6%2F</url>
-    <content type="text"><![CDATA[Flask代码框架文件及其目录 文件目录说明： Common：系统级配置 common/appconf.py 系统配置文件，用于不同环境可能修改的系统配置 common/applogger.py 日志模块代码 Conf：启动配置，和uwsgi有关联 Lib：公共库 Handler：业务代码 Handler/model：数据库表模块的定义 Common：公共函数、业务公共配置 Core_util：目前主要是异常处理，可以把common的和core_util合成一个 Common/mysql_session.py 数据库session（我们使用的是sqlachedemy） Common/op_Logs_interface.py 记录操作日志 Main.py 系统入口文件 123Handler/handlerfactory.py 所有接口的映射关系Handler/basehandler.py 接口基类，所有接口继承这个]]></content>
-      <categories>
-        <category>Flask</category>
-      </categories>
-      <tags>
-        <tag>flask</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[单例模式]]></title>
     <url>%2F2018%2F01%2F08%2F%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[单例模式Python中类是通过new来创建实例, 这个类从始至终只有一个实例, 用到__new__方法 代码1 123456789class A(object): _instance = None def __new__(cls, *args, **kwargs): if cls._instance is None: cls._instance = object.__new__(cls) return cls._instance else: return cls._instance 代码2: 12345678910111213class Singleton(object): def __new__(cls,*args,**kwargs): if not hasattr(cls,'_inst'): cls._inst=super(Singleton,cls).__new__(cls,*args,**kwargs) return cls._instif __name__=='__main__': class A(Singleton): def __init__(self,s): self.s=s a=A('apple') b=A('banana') print id(a),a.s print id(b),b.s]]></content>
@@ -60,6 +129,17 @@
       </categories>
       <tags>
         <tag>单例模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Flask代码框架]]></title>
+    <url>%2F2018%2F01%2F08%2FFlask%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6%2F</url>
+    <content type="text"><![CDATA[Flask代码框架文件及其目录 文件目录说明： Common：系统级配置 common/appconf.py 系统配置文件，用于不同环境可能修改的系统配置 common/applogger.py 日志模块代码 Conf：启动配置，和uwsgi有关联 Lib：公共库 Handler：业务代码 Handler/model：数据库表模块的定义 Common：公共函数、业务公共配置 Core_util：目前主要是异常处理，可以把common的和core_util合成一个 Common/mysql_session.py 数据库session（我们使用的是sqlachedemy） Common/op_Logs_interface.py 记录操作日志 Main.py 系统入口文件 123Handler/handlerfactory.py 所有接口的映射关系Handler/basehandler.py 接口基类，所有接口继承这个]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>flask</tag>
       </tags>
   </entry>
 </search>

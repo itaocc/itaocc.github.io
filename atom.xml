@@ -61,6 +61,132 @@
   </entry>
   
   <entry>
+    <title>面向对象编程和面向过程</title>
+    <link href="http://yoursite.com/2018/01/11/5-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
+    <id>http://yoursite.com/2018/01/11/5-面向对象编程/</id>
+    <published>2018-01-11T04:30:18.000Z</published>
+    <updated>2018-11-28T17:05:38.524Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要简述相关知识点&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="基础知识" scheme="http://yoursite.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>异常处理</title>
+    <link href="http://yoursite.com/2018/01/11/7-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"/>
+    <id>http://yoursite.com/2018/01/11/7-异常处理/</id>
+    <published>2018-01-11T04:20:18.000Z</published>
+    <updated>2018-11-28T13:21:58.135Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要简述相关知识点&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="基础知识" scheme="http://yoursite.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>文件操作</title>
+    <link href="http://yoursite.com/2018/01/11/4-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"/>
+    <id>http://yoursite.com/2018/01/11/4-文件操作/</id>
+    <published>2018-01-11T02:10:07.000Z</published>
+    <updated>2018-11-28T13:50:31.756Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要简述相关知识点&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="基础知识" scheme="http://yoursite.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>闭包和装饰器</title>
+    <link href="http://yoursite.com/2018/01/11/8-%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F/"/>
+    <id>http://yoursite.com/2018/01/11/8-列表推导式/</id>
+    <published>2018-01-11T01:37:18.000Z</published>
+    <updated>2018-11-28T12:45:45.600Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要记录闭包和装饰器相关知识点&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="基础知识" scheme="http://yoursite.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>类和继承</title>
+    <link href="http://yoursite.com/2018/01/11/5-%E7%B1%BB%E5%92%8C%E7%BB%A7%E6%89%BF/"/>
+    <id>http://yoursite.com/2018/01/11/5-类和继承/</id>
+    <published>2018-01-11T01:20:18.000Z</published>
+    <updated>2018-11-28T18:25:32.487Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要简述类是什么, 还有继承关系, 类属性, 实例属性等&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="基础知识" scheme="http://yoursite.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>类和继承</title>
+    <link href="http://yoursite.com/2018/01/11/6-%E7%B1%BB%E5%92%8C%E7%BB%A7%E6%89%BF/"/>
+    <id>http://yoursite.com/2018/01/11/6-类和继承/</id>
+    <published>2018-01-11T01:20:18.000Z</published>
+    <updated>2018-11-28T12:44:45.344Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要简述类是什么, 还有继承关系&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="基础知识" scheme="http://yoursite.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>函数和参数</title>
+    <link href="http://yoursite.com/2018/01/11/3-%E5%87%BD%E6%95%B0%E5%92%8C%E5%8F%82%E6%95%B0/"/>
+    <id>http://yoursite.com/2018/01/11/3-函数和参数/</id>
+    <published>2018-01-11T01:17:18.000Z</published>
+    <updated>2018-11-28T12:43:15.368Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要介绍和记录关于函数和参数的描述&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="基础知识" scheme="http://yoursite.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>迭代器和生成器</title>
     <link href="http://yoursite.com/2018/01/10/2-%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/"/>
     <id>http://yoursite.com/2018/01/10/2-迭代器和生成器/</id>
@@ -75,6 +201,60 @@
     </summary>
     
       <category term="基础知识" scheme="http://yoursite.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>数据类型</title>
+    <link href="http://yoursite.com/2018/01/10/1-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://yoursite.com/2018/01/10/1-数据类型/</id>
+    <published>2018-01-10T01:17:18.000Z</published>
+    <updated>2018-11-28T09:53:37.697Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;数据类型&quot;&gt;&lt;a href=&quot;#数据类型&quot; class=&quot;headerlink&quot; title=&quot;数据类型&quot;&gt;&lt;/a&gt;数据类型&lt;/h1&gt;&lt;p&gt;列表list, 字符串str, 元组tuple, 字典dict, 集合set  (还有一种zset)    数字类型Number(整型int/浮点型float),  布尔型bool&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="基础知识" scheme="http://yoursite.com/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>字典排序</title>
+    <link href="http://yoursite.com/2018/01/08/1-%E5%AD%97%E5%85%B8%E6%8E%92%E5%BA%8F/"/>
+    <id>http://yoursite.com/2018/01/08/1-字典排序/</id>
+    <published>2018-01-08T14:55:43.000Z</published>
+    <updated>2018-11-28T18:32:28.264Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;字典排序的方法&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="代码块" scheme="http://yoursite.com/categories/%E4%BB%A3%E7%A0%81%E5%9D%97/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>列表去重</title>
+    <link href="http://yoursite.com/2018/01/08/1-%E5%8E%BB%E9%87%8D/"/>
+    <id>http://yoursite.com/2018/01/08/1-去重/</id>
+    <published>2018-01-08T14:45:15.000Z</published>
+    <updated>2018-11-28T18:33:38.278Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;去重方法的代码&quot;&gt;&lt;a href=&quot;#去重方法的代码&quot; class=&quot;headerlink&quot; title=&quot;去重方法的代码&quot;&gt;&lt;/a&gt;去重方法的代码&lt;/h1&gt;&lt;p&gt;去重的一些方法&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="代码块" scheme="http://yoursite.com/categories/%E4%BB%A3%E7%A0%81%E5%9D%97/"/>
     
     
   </entry>
@@ -120,26 +300,6 @@
   </entry>
   
   <entry>
-    <title>Flask代码框架</title>
-    <link href="http://yoursite.com/2018/01/08/Flask%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6/"/>
-    <id>http://yoursite.com/2018/01/08/Flask代码框架/</id>
-    <published>2018-01-08T07:37:15.000Z</published>
-    <updated>2018-11-28T08:06:19.348Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Flask代码框架&quot;&gt;&lt;a href=&quot;#Flask代码框架&quot; class=&quot;headerlink&quot; title=&quot;Flask代码框架&quot;&gt;&lt;/a&gt;Flask代码框架&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;文件及其目录&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Flask" scheme="http://yoursite.com/categories/Flask/"/>
-    
-    
-      <category term="flask" scheme="http://yoursite.com/tags/flask/"/>
-    
-  </entry>
-  
-  <entry>
     <title>单例模式</title>
     <link href="http://yoursite.com/2018/01/08/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
     <id>http://yoursite.com/2018/01/08/单例模式/</id>
@@ -156,6 +316,26 @@
     
     
       <category term="单例模式" scheme="http://yoursite.com/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Flask代码框架</title>
+    <link href="http://yoursite.com/2018/01/08/Flask%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6/"/>
+    <id>http://yoursite.com/2018/01/08/Flask代码框架/</id>
+    <published>2018-01-08T07:37:15.000Z</published>
+    <updated>2018-11-28T08:06:19.348Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Flask代码框架&quot;&gt;&lt;a href=&quot;#Flask代码框架&quot; class=&quot;headerlink&quot; title=&quot;Flask代码框架&quot;&gt;&lt;/a&gt;Flask代码框架&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;文件及其目录&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Flask" scheme="http://yoursite.com/categories/Flask/"/>
+    
+    
+      <category term="flask" scheme="http://yoursite.com/tags/flask/"/>
     
   </entry>
   
